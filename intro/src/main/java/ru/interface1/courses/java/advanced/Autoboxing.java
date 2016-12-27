@@ -10,6 +10,6 @@ public class Autoboxing {
 
         System.out.println(k);
 
-        
+
     }
 }
