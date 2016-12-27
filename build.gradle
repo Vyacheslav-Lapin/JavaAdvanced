@@ -1,0 +1,21 @@
+allprojects {
+    group = 'ru.interface1.courses.java.advanced'
+    version = '1.0-SNAPSHOT'
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compileOnly 'org.projectlombok:lombok:+'
+        compile 'com.google.guava:guava:+'
+        testCompile 'junit:junit:+'
+    }
+}
