@@ -21,6 +21,6 @@ public class Immutable2 {
     }
 
     public static void main(String[] args) {
-        new Immutable2(1, 2, new Immutable(3, 4, immutable2));
+        new Immutable2(1, 2, new Immutable(3, 4));
     }
 }
