@@ -3,6 +3,10 @@ public class Bird extends Animal implements Flyer, EggNester {
     private int age;
     private Color color;
 
+    public void khKh(){
+        System.out.println("KhKh!!!");
+    }
+
     @Override
     public void fly() {
         System.out.println("flying!");
@@ -18,15 +22,21 @@ public class Bird extends Animal implements Flyer, EggNester {
         System.out.println("up!");
     }
 
+    @Override
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     public static void main(String[] args) {
         Flyer flyer = new Bird();
+        EggNester eggNester1 = new Bird();
 
         flyer.up();
         flyer.fly();
         flyer.lend();
 
-        if (flyer instanceof EggNester) {
-            EggNester eggNester = (EggNester) flyer;
+        if (flyer instanceof EggNester || flyer instanceof Bird) {
+            EggNester eggNester = (EggNester) eggNester1;
             eggNester.nest();
         }
     }
