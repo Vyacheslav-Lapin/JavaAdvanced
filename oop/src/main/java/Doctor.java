@@ -10,15 +10,17 @@ public class Doctor extends MedicalStaff {
 //        MedicalStaff med = new Doctor();
 //        med.info();
 
-        MedicalStaff[] medicalStaffs = {
-                new MedicalStaff(),
-                new Doctor(),
-                new Nurse(),
-                new Doctor(),
-                new Nurse()
-        };
-
-        for (MedicalStaff medicalStaff: medicalStaffs)
+        for (MedicalStaff medicalStaff: getMedicalStaffs())
             medicalStaff.info();
+    }
+
+    private static MedicalStaff[] getMedicalStaffs() {
+        return new MedicalStaff[]{
+                    new MedicalStaff(),
+                    new Doctor(),
+                    new Nurse(),
+                    new Doctor(),
+                    new Nurse()
+            };
     }
 }
