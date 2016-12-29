@@ -14,8 +14,13 @@ public class Bird extends Animal implements Flyer, EggNester {
 
     @Override
     public void lend() {
-        System.out.println("landing...");
+        EggNester.super.lend();
     }
+
+//    @Override
+//    public void lend() {
+//        System.out.println("landing...");
+//    }
 
     @Override
     public void up() {
@@ -31,9 +36,7 @@ public class Bird extends Animal implements Flyer, EggNester {
         Flyer flyer = new Bird();
         EggNester eggNester1 = new Bird();
 
-        flyer.up();
-        flyer.fly();
-        flyer.lend();
+        flyer.eat();
 
         if (flyer instanceof EggNester || flyer instanceof Bird) {
             EggNester eggNester = (EggNester) eggNester1;
