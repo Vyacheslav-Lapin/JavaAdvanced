@@ -7,8 +7,7 @@ public class Calc {
 
     public static double calc(String[] args) {
 
-        BinaryOperation[] operations = new BinaryOperation[args.length / 2];
-        int operationIndex = 0;
+        BinaryOperations operations = new BinaryOperations(args.length / 2);
 
         for (int i = 0; i < args.length; i++) {
             double leftOperand = Double.parseDouble(args[i++]);
@@ -33,17 +32,18 @@ public class Calc {
             // TODO: 29/12/2016 Разобраться с большим чем одна кол-вом операций
             operation.setRight(Double.parseDouble(args[i]));
 
-            operations[operationIndex++] = operation;
+            operations.add(operation);
         }
 
-        for (int i = 0;;) {
-            BinaryOperation operation = operations[i];
+        Double result = null;
+        while (operations.hasNext()) {
+            BinaryOperation operation = operations.next();
+            if (result != null)
+                operation.setLeft(result);
+
             // TODO: 29/12/2016 Разобраться с приоритетами
-            double result = operation.calc();
-            if (++i < operations.length)
-                operations[i].setLeft(result);
-            else
-                return result;
+            result = operation.calc();
         }
+        return result;
     }
 }
